@@ -1,0 +1,18 @@
+
+$primary-color: #42567A;
+$primary-color-border: rgb($primary-color ,10%);
+$blue-color: #5D5FEF;
+$blue-secondary-color: #3877EE;
+$pink-color: #EF5DA8;
+$background-color: #ffffff;
+$gradient-color: linear-gradient(180deg, $blue-secondary-color 100%, $pink-color 100%);
+
+
+$font-base: "PT Sans", sans-serif;
+$font-size-base: 20px;
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;

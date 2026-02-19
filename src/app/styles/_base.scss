@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+:root {
+  background-color: #ffffff;
+  font-family: $font-base;
+}
+
+body {
+  font-family: $font-base;
+  font-size: $font-size-base;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+}
