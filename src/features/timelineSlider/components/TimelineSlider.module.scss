@@ -1,0 +1,86 @@
+@use '@/app/styles/variables' as *;
+
+.timelineSwiperWrapper{
+    max-width: 1200px;
+    position: relative;
+
+   .custom-pagination {
+        display: none;
+    }
+
+    .swiperButtonCustom {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background: $white-color;
+        cursor: pointer;
+        color: $blue-secondary-color;
+        box-shadow: 0 1px 15px 0 rgba($blue-secondary-color, 0.2);
+
+        &.prev {
+            left: -60px;
+        }
+
+        &.next {
+            right: -60px;
+        }
+    }
+}
+
+@media(max-width: 320px) {
+    .timelineSwiperWrapper{
+        max-width: 320px;
+        position: relative;
+        border-top: 1px solid $grey-color;
+        padding-top: 20px;
+
+        
+        :global(.swiper) {
+            overflow: hidden;
+        }
+
+        :global(.custom-pagination) {
+            display: block;
+            position: absolute;
+            bottom: -100px;
+            left: 40%;
+            width: 86px;
+        }
+
+         :global(.custom-pagination .swiper-pagination-bullet) {
+            width: 6px;
+            height: 6px;
+            background-color: $primary-color;
+            
+            &.swiper-pagination-bullet-active {
+                background-color: $primary-color;
+            }
+        }
+
+        :global(.custom-pagination .swiper-pagination-bullet) {
+            width: 6px;
+            height: 6px;
+            background-color: $primary-color;
+            
+            &.swiper-pagination-bullet-active {
+                background-color: $primary-color;
+            }
+        }
+
+        :global(.swiper-slide) {
+            opacity: 0.4;
+            width: 166px;
+        }
+
+        :global(.swiper-slide-active) {
+            opacity: 1;
+        }
+
+        .swiperButtonCustom {
+            display: none;
+            }
+        }
+}

@@ -4,11 +4,13 @@ $primary-color-border: rgb($primary-color ,10%);
 $blue-color: #5D5FEF;
 $blue-secondary-color: #3877EE;
 $pink-color: #EF5DA8;
+$white-color: #FFFFFF;
 $background-color: #ffffff;
-$gradient-color: linear-gradient(180deg, $blue-secondary-color 100%, $pink-color 100%);
-
+$gradient-color: linear-gradient(180deg, $blue-secondary-color, $pink-color);
+$grey-color: #C7CDD9;
 
 $font-base: "PT Sans", sans-serif;
+$font-secondary: "Bebas Neue", sans-serif;
 $font-size-base: 20px;
 
 $spacing-xs: 4px;

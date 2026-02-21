@@ -2,6 +2,7 @@ import type { TimelineEvent } from "@/entities";
 
 export interface TimelinePeriod {
   id: string;
-  label: string; 
+  title: string;
+  years: string[]; 
   events: TimelineEvent[];
 }

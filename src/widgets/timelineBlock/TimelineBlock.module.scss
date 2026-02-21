@@ -5,13 +5,14 @@
   max-width: 1440px;
   border-left: 1px solid $primary-color-border; 
   border-right: 1px solid $primary-color-border;
-  height: 100vh;
+  min-height: 1080px;
+  height: auto;
   margin: auto;
 
   &::before{
     content: "";
     position: absolute;
-    top: 50%;
+    top: 44%;
     left: 0;
     width: 100%;
     height: 1px;
@@ -29,29 +30,324 @@
     height: 100vh;
     background-color: $primary-color-border;
   }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+    padding: 170px 0 86px;
+
+    .timeBlockTitle {
+      position: relative;
+      padding-left: 78px;
+      border-left: 5px solid;
+      border-image: $gradient-color 1;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+
+      h1{
+          margin: 0;
+          max-width: 353px;
+          color: $primary-color;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 137px;
+      padding: 0 80px;
+
+      .periodYears {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+        font-size: 200px;
+        font-weight: 700;
+        color: $blue-color;
+
+        & span:nth-last-child(1) {
+          color: $pink-color;
+        }
+      }
+
+      .bottomSection {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        
+        .sliderHeader {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          label {
+            font-size: 14px;
+            color: $primary-color;
+          }
+
+          .periodSelector {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+
+            .periodButton {
+              width: 50px;
+              height: 50px;
+              border: 1px solid rgb($primary-color ,50%);
+              border-radius: 50%;
+              background: none;
+              font-size: 24px;
+              cursor: pointer;
+              color: $primary-color;
+
+              &:disabled {
+                border-color: rgb($primary-color ,20%);
+                color: rgb($primary-color ,20%);
+              }
+            }
+          }
+        }
+
+        .sliderWrapper {
+          width: 100%;
+
+          .sliderTitle {
+           display: none;
+        }
+      }
+      }
+    }
+
+   .circle {
+      position: absolute;
+      width: 530px;
+      height: 530px;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 1px solid rgba($primary-color, 0.2);
+      z-index: 3;
+    }
+
+    .dotWrapper {
+      position: absolute;
+      top:50%;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      pointer-events: none;
+      transition: transform 0.8s ease;
+
+      .dotTitle {
+        position: absolute;   
+        font-size: $font-size-base;
+        color: $primary-color;
+        font-weight: 700;
+        white-space: nowrap;
+        pointer-events: none;
+        line-height: 1;
+      }
+
+      .dotInner {
+        width: 6px;
+        height: 6px;
+        background: $primary-color;
+        border-radius: 50%;
+        color: $primary-color;
+        transition: all 0.3s ease;
+        transform-origin: center center; 
+        pointer-events: auto;
+        cursor: pointer;
+
+         span {
+          opacity: 0; 
+          transition: opacity 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover span,
+        &.active span {
+          opacity: 1;
+        }
+
+        &:hover {
+          width: 56px;
+          height: 56px;
+          border: 1px solid rgba($primary-color, 0.5);
+          background: $white-color;
+          font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: -25px;
+        }
+
+        &.active {
+          width: 56px;
+          height: 56px;
+          border: 1px solid rgba($primary-color, 0.5);
+          background: none;
+          font-size: 14px;
+          display: flex;
+          background: $white-color;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: -25px;
+        }
+      }
+    }
+  }
 }
 
 
-.periodSelector {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
+@media(max-width: 320px) {
+  .timelineBlock {
+  position: relative;
+  max-width: 320px;
+  border: none;
+  height: auto;
+  margin: auto;
+  min-height: auto;
 
-.periodButton {
-  padding: 8px 16px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: pointer;
-}
+  &::before{
+    content: "";
+    display: none;
+  }
 
-.active {
-  background: #007bff;
-  color: #fff;
-  border-color: #007bff;
-}
+  &::after{
+    content: "";
+    display: none;
+  }
 
-.sliderWrapper {
-  width: 100%;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 59px 0 13px;
+
+    .timeBlockTitle {
+      position: relative;
+      padding-left: 20px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      border: none;
+      background: none;
+      margin: 0;
+      height: auto;
+
+      h1{
+          margin: 0;
+          max-width: 353px;
+          font-size: 20px;
+          color: $primary-color;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 58px;
+      padding: 0 20px;
+
+      .periodYears {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        font-size: 56px;
+      }
+
+      .bottomSection {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        
+        .sliderHeader {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          order:2;
+
+          label {
+            font-size: 14px;
+            color: $primary-color;
+          }
+
+          .periodSelector {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            gap: 8px;
+
+            .periodButton {
+              width: 25px;
+              height: 25px;
+              border: 1px solid rgb($primary-color ,50%);
+              border-radius: 50%;
+              background: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 12px;
+              cursor: pointer;
+              color: $primary-color;
+
+              &:disabled {
+                border-color: rgb($primary-color ,20%);
+                color: rgb($primary-color ,20%);
+              }
+            }
+          }
+        }
+
+        .sliderWrapper {
+          width: 100%;
+          order:1;
+
+          .sliderTitle {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+   .circle {
+      display: none;
+    }
+
+    .dotWrapper {
+      display: none;
+
+      .dotInner {
+        display: none;
+
+         span {
+          display: none;
+        }
+      }
+    }
+  }
+}
 }
