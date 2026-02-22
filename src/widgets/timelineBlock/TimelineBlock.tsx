@@ -1,6 +1,6 @@
 import React from "react";
-import { TimelineSlider } from "@/features";
-import { useTimeline } from "@/widgets";
+import { TimelineSlider, TimelineCircle } from "@/widgets";
+import { useTimeline } from "@/features";
 import type { TimelinePeriod } from "@/widgets";
 import * as styles from "./TimelineBlock.module.scss";
 import { AnimatedNumbers } from "@/features/animatedNumbers/AnimatedNumbers";
@@ -28,45 +28,15 @@ export const TimelineBlock: React.FC<Props> = ({ periods }) => {
   return (
     <div className={styles.timelineBlock}>
       <div className={styles.container}>
-        <div className={styles.circle}>
-          {periods.map((_, index) => {
-            const angle = initialAngles[index];
-            return (
-              <div
-                key={index}
-                className={styles.dotWrapper}
-                style={{
-                  transform: `rotate(${angle + rotation}deg) translateY(265px)`,
-                }}
-                onClick={() => handleDotClick(index)}
-                onMouseOver={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div
-                  className={
-                    styles.dotInner +
-                    (index === activeIndex ? " " + styles.active : "")
-                  }
-                  style={{ transform: `rotate(${-angle - rotation}deg)` }}
-                >
-                  <span>
-                    {index === activeIndex || hoveredIndex === index
-                      ? index + 1
-                      : ""}
-                  </span>
-                </div>
-                <span
-                  className={styles.dotTitle}
-                  style={{
-                    transform: `rotate(${-angle - rotation}deg) translateX(95px)`,
-                  }}
-                >
-                  {index === activeIndex ? periods[index].title : ""}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+        <TimelineCircle
+          periods={periods}
+          activeIndex={activeIndex}
+          hoveredIndex={hoveredIndex}
+          rotation={rotation}
+          initialAngles={initialAngles}
+          onDotClick={handleDotClick}
+          onHover={setHoveredIndex}
+        />
 
         <div className={styles.timeBlockTitle}>
           <h1>Исторические даты</h1>
