@@ -1,1 +1,1 @@
-export {TimelineSlider} from "./timelineSlider/components/TimelineSlider";
+export { TimelineSlider } from "./timelineSlider/components/TimelineSlider";

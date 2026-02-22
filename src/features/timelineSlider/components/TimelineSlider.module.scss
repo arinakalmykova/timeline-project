@@ -71,12 +71,16 @@
         }
 
         :global(.swiper-slide) {
-            opacity: 0.4;
-            width: 166px;
+           width: 166px;
         }
 
-        :global(.swiper-slide-active) {
-            opacity: 1;
+        :global(.swiper-slide-next) {
+            opacity: 0.4 !important;
+        }
+
+        :global(.swiper-slide-active),
+        :global(.swiper-slide:last-child) {
+            opacity: 1 !important;
         }
 
         .swiperButtonCustom {

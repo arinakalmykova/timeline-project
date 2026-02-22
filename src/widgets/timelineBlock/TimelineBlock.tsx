@@ -43,14 +43,23 @@ export const TimelineBlock: React.FC<Props> = ({ periods }) => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div
-                  className={styles.dotInner + (index === activeIndex ? " " + styles.active : "")}
+                  className={
+                    styles.dotInner +
+                    (index === activeIndex ? " " + styles.active : "")
+                  }
                   style={{ transform: `rotate(${-angle - rotation}deg)` }}
                 >
-                  <span>{index === activeIndex || hoveredIndex === index ? index + 1 : ""}</span>
+                  <span>
+                    {index === activeIndex || hoveredIndex === index
+                      ? index + 1
+                      : ""}
+                  </span>
                 </div>
                 <span
                   className={styles.dotTitle}
-                  style={{ transform: `rotate(${-angle - rotation}deg) translateX(95px)` }}
+                  style={{
+                    transform: `rotate(${-angle - rotation}deg) translateX(95px)`,
+                  }}
                 >
                   {index === activeIndex ? periods[index].title : ""}
                 </span>
@@ -70,7 +79,10 @@ export const TimelineBlock: React.FC<Props> = ({ periods }) => {
                 key={idx}
                 from={Number(previousYears[idx] || year)}
                 to={Number(year)}
-                duration={Math.abs(Number(year) - Number(previousYears[idx] || year)) * 0.2}
+                duration={
+                  Math.abs(Number(year) - Number(previousYears[idx] || year)) *
+                  0.2
+                }
               />
             ))}
           </span>
@@ -81,8 +93,20 @@ export const TimelineBlock: React.FC<Props> = ({ periods }) => {
                 0{activeIndex + 1}/0{periods.length}
               </label>
               <div className={styles.periodSelector}>
-                <button className={styles.periodButton} onClick={prevPeriod} disabled={!canGoPrev}>‹</button>
-                <button className={styles.periodButton} onClick={nextPeriod} disabled={!canGoNext}>›</button>
+                <button
+                  className={styles.periodButton}
+                  onClick={prevPeriod}
+                  disabled={!canGoPrev}
+                >
+                  ‹
+                </button>
+                <button
+                  className={styles.periodButton}
+                  onClick={nextPeriod}
+                  disabled={!canGoNext}
+                >
+                  ›
+                </button>
               </div>
             </div>
 

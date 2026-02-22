@@ -7,7 +7,11 @@ interface AnimatedNumberProps {
   duration?: number;
 }
 
-export const AnimatedNumbers: React.FC<AnimatedNumberProps> = ({ from, to, duration = 1 }) => {
+export const AnimatedNumbers: React.FC<AnimatedNumberProps> = ({
+  from,
+  to,
+  duration = 1,
+}) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -15,7 +19,7 @@ export const AnimatedNumbers: React.FC<AnimatedNumberProps> = ({ from, to, durat
       gsap.to(ref.current, {
         innerText: to,
         duration,
-        snap: "innerText", 
+        snap: "innerText",
         ease: "power1.inOut",
       });
     }

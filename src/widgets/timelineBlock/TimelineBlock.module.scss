@@ -3,13 +3,13 @@
 .timelineBlock {
   position: relative;
   max-width: 1440px;
-  border-left: 1px solid $primary-color-border; 
+  border-left: 1px solid $primary-color-border;
   border-right: 1px solid $primary-color-border;
   min-height: 1080px;
   height: auto;
   margin: auto;
 
-  &::before{
+  &::before {
     content: "";
     position: absolute;
     top: 44%;
@@ -20,7 +20,7 @@
     transform: translateY(-50%);
   }
 
-  &::after{
+  &::after {
     content: "";
     position: absolute;
     top: 0;
@@ -48,10 +48,10 @@
       align-items: center;
       z-index: 2;
 
-      h1{
-          margin: 0;
-          max-width: 353px;
-          color: $primary-color;
+      h1 {
+        margin: 0;
+        max-width: 353px;
+        color: $primary-color;
       }
     }
 
@@ -62,7 +62,7 @@
       padding: 0 80px;
 
       .periodYears {
-        display:flex;
+        display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -80,7 +80,7 @@
         display: flex;
         flex-direction: column;
         gap: 56px;
-        
+
         .sliderHeader {
           display: flex;
           flex-direction: column;
@@ -100,7 +100,7 @@
             .periodButton {
               width: 50px;
               height: 50px;
-              border: 1px solid rgb($primary-color ,50%);
+              border: 1px solid rgb($primary-color, 50%);
               border-radius: 50%;
               background: none;
               font-size: 24px;
@@ -108,8 +108,8 @@
               color: $primary-color;
 
               &:disabled {
-                border-color: rgb($primary-color ,20%);
-                color: rgb($primary-color ,20%);
+                border-color: rgb($primary-color, 20%);
+                color: rgb($primary-color, 20%);
               }
             }
           }
@@ -119,13 +119,13 @@
           width: 100%;
 
           .sliderTitle {
-           display: none;
+            display: none;
+          }
         }
-      }
       }
     }
 
-   .circle {
+    .circle {
       position: absolute;
       width: 530px;
       height: 530px;
@@ -140,7 +140,7 @@
 
     .dotWrapper {
       position: absolute;
-      top:50%;
+      top: 50%;
       left: 50%;
       display: flex;
       justify-content: center;
@@ -150,7 +150,7 @@
       transition: transform 0.8s ease;
 
       .dotTitle {
-        position: absolute;   
+        position: absolute;
         font-size: $font-size-base;
         color: $primary-color;
         font-weight: 700;
@@ -166,12 +166,12 @@
         border-radius: 50%;
         color: $primary-color;
         transition: all 0.3s ease;
-        transform-origin: center center; 
+        transform-origin: center center;
         pointer-events: auto;
         cursor: pointer;
 
-         span {
-          opacity: 0; 
+        span {
+          opacity: 0;
           transition: opacity 0.3s ease;
           display: flex;
           justify-content: center;
@@ -216,138 +216,137 @@
   }
 }
 
-
-@media(max-width: 320px) {
+@media (max-width: 320px) {
   .timelineBlock {
-  position: relative;
-  max-width: 320px;
-  border: none;
-  height: auto;
-  margin: auto;
-  min-height: auto;
+    position: relative;
+    max-width: 320px;
+    border: none;
+    height: auto;
+    margin: auto;
+    min-height: auto;
 
-  &::before{
-    content: "";
-    display: none;
-  }
+    &::before {
+      content: "";
+      display: none;
+    }
 
-  &::after{
-    content: "";
-    display: none;
-  }
+    &::after {
+      content: "";
+      display: none;
+    }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
-    padding: 59px 0 13px;
-
-    .timeBlockTitle {
-      position: relative;
-      padding-left: 20px;
+    .container {
       display: flex;
-      align-items: center;
-      z-index: 2;
-      border: none;
-      background: none;
-      margin: 0;
-      height: auto;
+      flex-direction: column;
+      gap: 56px;
+      padding: 59px 0 13px;
 
-      h1{
+      .timeBlockTitle {
+        position: relative;
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+        border: none;
+        background: none;
+        margin: 0;
+        height: auto;
+
+        h1 {
           margin: 0;
           max-width: 353px;
           font-size: 20px;
           color: $primary-color;
-      }
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 58px;
-      padding: 0 20px;
-
-      .periodYears {
-        display:flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 32px;
-        font-size: 56px;
+        }
       }
 
-      .bottomSection {
+      .content {
         display: flex;
         flex-direction: column;
-        gap: 56px;
-        
-        .sliderHeader {
+        gap: 58px;
+        padding: 0 20px;
+
+        .periodYears {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 32px;
+          font-size: 56px;
+        }
+
+        .bottomSection {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          order:2;
+          gap: 56px;
 
-          label {
-            font-size: 14px;
-            color: $primary-color;
-          }
-
-          .periodSelector {
-            position: relative;
+          .sliderHeader {
             display: flex;
-            justify-content: flex-start;
-            gap: 8px;
+            flex-direction: column;
+            gap: 10px;
+            order: 2;
 
-            .periodButton {
-              width: 25px;
-              height: 25px;
-              border: 1px solid rgb($primary-color ,50%);
-              border-radius: 50%;
-              background: none;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 12px;
-              cursor: pointer;
+            label {
+              font-size: 14px;
               color: $primary-color;
+            }
 
-              &:disabled {
-                border-color: rgb($primary-color ,20%);
-                color: rgb($primary-color ,20%);
+            .periodSelector {
+              position: relative;
+              display: flex;
+              justify-content: flex-start;
+              gap: 8px;
+
+              .periodButton {
+                width: 25px;
+                height: 25px;
+                border: 1px solid rgb($primary-color, 50%);
+                border-radius: 50%;
+                background: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                cursor: pointer;
+                color: $primary-color;
+
+                &:disabled {
+                  border-color: rgb($primary-color, 20%);
+                  color: rgb($primary-color, 20%);
+                }
               }
             }
           }
-        }
 
-        .sliderWrapper {
-          width: 100%;
-          order:1;
+          .sliderWrapper {
+            width: 100%;
+            order: 1;
 
-          .sliderTitle {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: $primary-color;
+            .sliderTitle {
+              display: block;
+              font-size: 0.7rem;
+              font-weight: 700;
+              color: $primary-color;
+            }
           }
         }
       }
-    }
 
-   .circle {
-      display: none;
-    }
+      .circle {
+        display: none;
+      }
 
-    .dotWrapper {
-      display: none;
-
-      .dotInner {
+      .dotWrapper {
         display: none;
 
-         span {
+        .dotInner {
           display: none;
+
+          span {
+            display: none;
+          }
         }
       }
     }
   }
-}
 }

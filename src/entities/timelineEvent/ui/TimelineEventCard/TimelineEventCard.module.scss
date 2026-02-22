@@ -1,47 +1,46 @@
 @use "@/app/styles/_variables.scss" as *;
 
 .card {
-    max-width: 300px;
+  max-width: 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .description {
+    margin: 0;
+    color: $primary-color;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+.date {
+  font-family: $font-secondary;
+  color: $blue-secondary-color;
+  margin: 0;
+}
+
+@media (max-width: 320px) {
+  .card {
+    max-width: 100%;
     text-align: left;
     display: flex;
     flex-direction: column;
     gap: 15px;
 
     .description {
-        margin: 0;
-        color: $primary-color;
-        font-size: 20px;
-        line-height: 1.5;
-    }        
-}
+      margin: 0;
+      color: $primary-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
 
-.date { 
+  .date {
     font-family: $font-secondary;
-    color: $blue-secondary-color ;
+    color: $blue-secondary-color;
     margin: 0;
-}
-
-
-@media(max-width: 320px) {
-    .card {
-        max-width: 100%;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        .description {
-            margin: 0;
-            color: $primary-color;
-            font-size: 14px;
-            line-height: 1.5;
-        }        
-    }
-
-    .date { 
-        font-family: $font-secondary;
-        color: $blue-secondary-color ;
-        margin: 0;
-        font-size: 16px;
-    }
+    font-size: 16px;
+  }
 }

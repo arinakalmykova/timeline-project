@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, act } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation,Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { useTimeline } from "@/widgets";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,17 +21,26 @@ export const TimelineSlider: React.FC<Props> = ({ events }) => {
   const { activeIndex, setActiveIndex, activePeriod } = useTimeline([], 0);
 
   useEffect(() => {
-  if (swiperRef.current) {
-    setCanSlidePrev(!swiperRef.current.isBeginning);
-    setCanSlideNext(!swiperRef.current.isEnd);
+    if (swiperRef.current) {
+      setCanSlidePrev(!swiperRef.current.isBeginning);
+      setCanSlideNext(!swiperRef.current.isEnd);
 
-    const slides = Array.from(swiperRef.current.slides) as HTMLElement[];
-    gsap.to(slides, { opacity: 0, y: 20, duration: 0.3, stagger: 0.05 });
-    setTimeout(() => {
-      gsap.to(slides, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 });
-    }, 300);
-  }
-}, [ activePeriod]);
+      const slides = Array.from(swiperRef.current.slides) as HTMLElement[];
+      gsap.to(slides, { opacity: 0, y: 20, duration: 0.3, stagger: 0.05 });
+      setTimeout(() => {
+        gsap.to(slides, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 });
+      }, 300);
+    }
+  }, [activePeriod]);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.update();
+      swiperRef.current.updateSlides();
+      swiperRef.current.updateProgress();
+      swiperRef.current.updateSlidesClasses();
+    }
+  }, [events]);
 
   const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.realIndex);
@@ -54,12 +63,12 @@ export const TimelineSlider: React.FC<Props> = ({ events }) => {
           320: {
             slidesPerView: "auto",
             spaceBetween: 25,
-            pagination: { el: ".custom-pagination", clickable: true }
+            pagination: { el: ".custom-pagination", clickable: true },
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 100, 
-            pagination: {  clickable: false }
+            spaceBetween: 100,
+            pagination: { clickable: false },
           },
         }}
       >
@@ -68,7 +77,7 @@ export const TimelineSlider: React.FC<Props> = ({ events }) => {
             {" "}
             <TimelineEventCard event={event} />{" "}
           </SwiperSlide>
-        ))}{" "}    
+        ))}{" "}
       </Swiper>
 
       <div className="custom-pagination"></div>
